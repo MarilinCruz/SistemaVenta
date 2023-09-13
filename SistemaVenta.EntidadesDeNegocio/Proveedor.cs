@@ -30,6 +30,6 @@ namespace SistemaVenta.EntidadesDeNegocio
 
         [NotMapped]
         public int Top_Aux { get; set; }
-        public List<Categoria> Categoria { get; set; }
+        public List<Producto> Productos { get; set; }
     }
 }

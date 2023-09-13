@@ -15,6 +15,7 @@ namespace SistemaVenta.AccesoADatos
             int result = 0;
             using (var bdContexto = new BDContexto())
             {
+                pProducto.FechaRegistro = DateTime.Now;
                 bdContexto.Add(pProducto);
                 result = await bdContexto.SaveChangesAsync();
             }
