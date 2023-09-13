@@ -11,8 +11,10 @@ namespace SistemaVenta.AccesoADatos.Tests
 {
     [TestClass()]
     public class CategoriaDALTests
+
     {
-        private static Categoria categoriaInicial = new Categoria { Id = 1 };
+
+        private static Categoria categoriaInicial = new Categoria { Id = 2 };
 
         [TestMethod()]
         public async Task T1CrearAsyncTest()
@@ -27,20 +29,23 @@ namespace SistemaVenta.AccesoADatos.Tests
         [TestMethod()]
         public async Task T2ModificarAsyncTest()
         {
+
             var categoria = new Categoria();
             categoria.Id = categoriaInicial.Id;
-            categoria.Nombre = "Electronicos";
+            categoria.Nombre = "Electrinic";
             int result = await CategoriaDAL.ModificarAsync(categoria);
             Assert.AreNotEqual(0, result);
         }
+
+        
 
         [TestMethod()]
         public async Task T3ObtenerPorIdAsyncTest()
         {
             var categoria = new Categoria();
             categoria.Id = categoriaInicial.Id;
-            var resultCategoria = await CategoriaDAL.ObtenerPorIdAsync(categoria);
-            Assert.AreEqual(categoria.Id, resultCategoria.Id);
+            var resultRol = await CategoriaDAL.ObtenerPorIdAsync(categoria);
+            Assert.AreEqual(categoria.Id, resultRol.Id);
         }
 
         [TestMethod()]

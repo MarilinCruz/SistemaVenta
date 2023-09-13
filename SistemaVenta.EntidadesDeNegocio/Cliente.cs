@@ -38,6 +38,6 @@ namespace SistemaVenta.EntidadesDeNegocio
 
         [NotMapped]
         public int Top_Aux { get; set; }
-        public int IdCategoria { get; set; }
+        
     }
 }
