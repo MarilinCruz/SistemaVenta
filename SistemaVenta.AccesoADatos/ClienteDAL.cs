@@ -15,6 +15,7 @@ namespace SistemaVenta.AccesoADatos
             int result = 0;
             using (var bdContexto = new BDContexto())
             {
+                pCliente.FechaRegistro = DateTime.Now;
                 bdContexto.Add(pCliente);
                 result = await bdContexto.SaveChangesAsync();
             }
@@ -107,17 +108,7 @@ namespace SistemaVenta.AccesoADatos
             return clientes;
         }
 
-        public static async Task<List<Cliente>> BuscarIncluirRolAsync(Cliente pCliente)
-        {
-            var clientes = new List<Cliente>();
-            using (var bdContexto = new BDContexto())
-            {
-                var select = bdContexto.Cliente.AsQueryable();
-                select = QuerySelect(select, pCliente);
-                clientes = await select.ToListAsync();
-            }
-            return clientes;
-        }
+       
 
     }
 }
