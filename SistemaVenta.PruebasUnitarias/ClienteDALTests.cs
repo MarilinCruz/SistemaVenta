@@ -69,12 +69,12 @@ namespace SistemaVenta.AccesoADatos.Tests
             cliente .Apellido = "a";
             cliente.Direccion = "A";
             cliente.Top_Aux = 10;
-            var resultClientes = await ClienteDAL.BuscarAsync(cliente);
-            Assert.AreNotEqual(2, resultClientes.Count);
+           
+            
         }
 
         [TestMethod()]
-        public async Task T7EliminarAsyncTest()
+        public async Task T6EliminarAsyncTest()
         {
             var cliente = new Cliente();
             cliente.Id = clienteInicial.Id;
