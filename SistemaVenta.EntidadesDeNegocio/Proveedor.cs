@@ -30,10 +30,7 @@ namespace SistemaVenta.EntidadesDeNegocio
 
         [NotMapped]
         public int Top_Aux { get; set; }
-<<<<<<< HEAD
-        public List<Producto> Productos { get; set; }
-=======
-        public List<Producto> Producto { get; set; }
->>>>>>> 4615a861a8347b61948d2f777caff11b49323472
+
+       // public List<Producto> Productos { get; set; }
     }
 }

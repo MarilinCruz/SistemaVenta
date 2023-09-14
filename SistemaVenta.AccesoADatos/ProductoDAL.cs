@@ -28,7 +28,7 @@ namespace SistemaVenta.AccesoADatos
             using (var bdContexto = new BDContexto())
             {
                 var producto = await bdContexto.Producto.FirstOrDefaultAsync(s => s.Id == pProducto.Id);
-                producto.IdCategoria = pProducto.IdCategoria;
+               producto.IdCategoria = pProducto.IdCategoria;
                 producto.Codigo = pProducto.Codigo;
                 producto.Nombre = pProducto.Nombre;
                 producto.Descripcion = pProducto.Descripcion ;
@@ -109,17 +109,7 @@ namespace SistemaVenta.AccesoADatos
             return productos;
         }
 
-        public static async Task<List<Producto>> BuscarIncluirRolAsync(Producto pProducto)
-        {
-            var productos = new List<Producto>();
-            using (var bdContexto = new BDContexto())
-            {
-                var select = bdContexto.Producto.AsQueryable();
-                select = QuerySelect(select, pProducto);
-                productos = await select.ToListAsync();
-            }
-            return productos;
-        }
+        
 
     }
 }

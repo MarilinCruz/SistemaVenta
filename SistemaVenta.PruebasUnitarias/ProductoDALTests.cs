@@ -12,7 +12,7 @@ namespace SistemaVenta.AccesoADatos.Tests
     [TestClass()]
     public class ProductoDALTests
     {
-        private static Producto productoInicial = new Producto {  Id = 1, IdCategoria = 1 };
+        private static Producto productoInicial = new Producto { Id = 1, IdCategoria = 1 };
 
         [TestMethod()]
         public async Task T1CrearAsyncTest()
@@ -22,11 +22,11 @@ namespace SistemaVenta.AccesoADatos.Tests
             producto.Codigo = "002";
             producto.Nombre = "Conectores";
             producto.Descripcion = "Conectores de tipo USB";
-            producto.Precio = Convert.ToDecimal ("2.50");
+            producto.Precio = Convert.ToDecimal("2.50");
             int result = await ProductoDAL.CrearAsync(producto);
             Assert.AreNotEqual(0, result);
             productoInicial.Id = producto.Id;
-            
+
         }
 
         [TestMethod()]
@@ -34,8 +34,8 @@ namespace SistemaVenta.AccesoADatos.Tests
         {
             var producto = new Producto();
             producto.IdCategoria = productoInicial.IdCategoria;
-            producto.Codigo = "002";
-            producto.Nombre = "Conectores";
+            producto.Codigo = "003";
+            producto.Nombre = "Conector";
             producto.Descripcion = "Conectores de tipo USB";
             producto.Precio = Convert.ToDecimal("2.50");
             int result = await ProductoDAL.CrearAsync(producto);
@@ -48,31 +48,39 @@ namespace SistemaVenta.AccesoADatos.Tests
         [TestMethod()]
         public async Task T3ObtenerPorIdAsyncTest()
         {
-            Assert.Fail();
+            var producto = new Producto();
+            producto.Id = productoInicial.Id;
+            var resultProducto = await ProductoDAL.ObtenerPorIdAsync(producto);
+            Assert.AreEqual(producto.Id, resultProducto.Id);
         }
 
         [TestMethod()]
         public async Task T4ObtenerTodosAsyncTest()
         {
-            Assert.Fail();
+            var resultProductos = await ProductoDAL.ObtenerTodosAsync();
+            Assert.AreNotEqual(0, resultProductos.Count);
         }
 
         [TestMethod()]
         public async Task T5BuscarAsyncTest()
         {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public async Task T6BuscarIncluirRolAsyncTest()
-        {
-            Assert.Fail();
+            var producto = new Producto();
+            producto.Codigo = "00";
+            producto.Nombre = "a";
+            producto.Descripcion = "e";
+            //producto.Precio = Convert.ToDecimal("2.50");
+            producto.Top_Aux = 10;
+            var resultProductos = await ProductoDAL.BuscarAsync(producto);
+            Assert.AreNotEqual(0, resultProductos.Count);
         }
 
         [TestMethod()]
         public async Task T7EliminarAsyncTest()
         {
-            Assert.Fail();
+            var producto = new Producto();
+            producto.Id = productoInicial.Id;
+            int result = await ProductoDAL.EliminarAsync(producto);
+            Assert.AreNotEqual(0, result);
         }
 
 
@@ -80,4 +88,4 @@ namespace SistemaVenta.AccesoADatos.Tests
 
 }
 
-    
+
