@@ -10,6 +10,7 @@ namespace SistemaVenta.EntidadesDeNegocio
 {
     public class Proveedor
     {
+
         [Key]
         public int Id { get; set; }
 

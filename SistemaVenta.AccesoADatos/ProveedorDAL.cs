@@ -10,6 +10,8 @@ namespace SistemaVenta.AccesoADatos
 {
     public class ProveedorDAL
     {
+
+
         public static async Task<int> CrearAsync(Proveedor pProveedor)
         {
             int result = 0;
@@ -102,17 +104,7 @@ namespace SistemaVenta.AccesoADatos
             return proveedores;
         }
 
-        public static async Task<List<Proveedor>> BuscarIncluirRolAsync(Proveedor  pProveedor)
-        {
-            var proveedores = new List<Proveedor>();
-            using (var bdContexto = new BDContexto())
-            {
-                var select = bdContexto.Proveedor.AsQueryable();
-                select = QuerySelect(select, pProveedor);
-                proveedores = await select.ToListAsync();
-            }
-            return proveedores;
-        }
+        
 
     }
 }
