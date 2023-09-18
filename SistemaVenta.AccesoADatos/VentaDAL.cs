@@ -114,17 +114,8 @@ namespace SistemaVenta.AccesoADatos
             return ventas;
         }
 
-        public static async Task<List<Venta>> BuscarIncluirRolAsync(Venta pVenta)
-        {
-            var ventas = new List<Venta>();
-            using (var bdContexto = new BDContexto())
-            {
-                var select = bdContexto.Venta.AsQueryable();
-                select = QuerySelect(select, pVenta);
-                ventas = await select.ToListAsync();
-            }
-            return ventas;
-        }
+      
+        
 
     }
 }
