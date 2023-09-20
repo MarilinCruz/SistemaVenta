@@ -13,12 +13,12 @@ namespace SistemaVenta.AccesoADatos
         public static async Task<int> CrearAsync(Rol pRol)
         {
             int result = 0;
-            using (var bdContexto = new BDContexto())
+            using (var dbcontext = new BDContexto())
             {
-                bdContexto.Add(pRol);
-                result = await bdContexto.SaveChangesAsync();
+                dbcontext.Add<Rol>(pRol);
+                result = await dbcontext.SaveChangesAsync();
             }
-            return result; 
+            return result;
         }
         public static async Task<int> ModificarAsync(Rol pRol)
         {

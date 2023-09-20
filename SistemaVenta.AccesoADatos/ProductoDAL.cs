@@ -28,12 +28,12 @@ namespace SistemaVenta.AccesoADatos
             using (var bdContexto = new BDContexto())
             {
                 var producto = await bdContexto.Producto.FirstOrDefaultAsync(s => s.Id == pProducto.Id);
-               producto.IdCategoria = pProducto.IdCategoria;
+                producto.IdCategoria = pProducto.IdCategoria;
                 producto.Codigo = pProducto.Codigo;
                 producto.Nombre = pProducto.Nombre;
                 producto.Descripcion = pProducto.Descripcion ;
                 producto.Precio = pProducto.Precio;
-                bdContexto.Update(pProducto);
+                bdContexto.Update(producto);
                 result = await bdContexto.SaveChangesAsync();
             }
             return result;
@@ -81,8 +81,8 @@ namespace SistemaVenta.AccesoADatos
                 pQuery = pQuery.Where(s => s.Nombre.Contains(pProducto.Nombre));
             if (!string.IsNullOrWhiteSpace(pProducto.Descripcion))
                 pQuery = pQuery.Where(s => s.Descripcion.Contains(pProducto.Descripcion));
-            if (pProducto.Precio > 0)
-                pQuery = pQuery.Where(s => s.Precio == pProducto.Precio);
+            if (!string.IsNullOrWhiteSpace(pProducto.Precio))
+                pQuery = pQuery.Where(s => s.Precio.Contains(pProducto.Precio));
 
             if (pProducto.FechaRegistro.Year > 1000)
             {

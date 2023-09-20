@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace SistemaVenta.EntidadesDeNegocio
 {
@@ -28,6 +29,7 @@ namespace SistemaVenta.EntidadesDeNegocio
 
         [Display(Name = "Fecha registro")]
         public DateTime FechaRegistro { get; set; }
+
 
         [NotMapped]
         public int Top_Aux { get; set; }

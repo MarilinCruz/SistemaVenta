@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace SistemaVenta.EntidadesDeNegocio
 {
@@ -19,6 +20,8 @@ namespace SistemaVenta.EntidadesDeNegocio
 
         [NotMapped]
         public int Top_Aux { get; set; }
+
+        [ValidateNever]
         public List<Usuario> Usuario { get; set; }
     }
 }

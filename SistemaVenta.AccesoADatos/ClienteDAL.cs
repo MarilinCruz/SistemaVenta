@@ -33,7 +33,7 @@ namespace SistemaVenta.AccesoADatos
                 cliente.Direccion = pCliente.Direccion;
                 cliente.Correo = pCliente.Correo;
                 cliente.Telefono = pCliente.Telefono;
-                bdContexto.Update(pCliente);
+                bdContexto.Update(cliente);
                 result = await bdContexto.SaveChangesAsync();
             }
             return result;

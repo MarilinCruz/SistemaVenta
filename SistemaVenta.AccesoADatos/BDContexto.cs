@@ -20,7 +20,7 @@ namespace SistemaVenta.AccesoADatos
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=LAPTOP-DBF6AK6H\TATIANA;Initial Catalog=ProyectoEjemplo;Integrated Security=True");
+            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-V7KMQ9L\SQLEXPRESS;Initial Catalog=ProyectoEjemplo;Integrated Security=True; encrypt = false; trustServerCertificate = false");
 
         }
 

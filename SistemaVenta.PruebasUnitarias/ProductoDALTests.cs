@@ -22,7 +22,7 @@ namespace SistemaVenta.AccesoADatos.Tests
             producto.Codigo = "002";
             producto.Nombre = "Conectores";
             producto.Descripcion = "Conectores de tipo USB";
-            producto.Precio = Convert.ToDecimal("2.50");
+            producto.Precio = "2.50";
             int result = await ProductoDAL.CrearAsync(producto);
             Assert.AreNotEqual(0, result);
             productoInicial.Id = producto.Id;
@@ -37,7 +37,7 @@ namespace SistemaVenta.AccesoADatos.Tests
             producto.Codigo = "003";
             producto.Nombre = "Conector";
             producto.Descripcion = "Conectores de tipo USB";
-            producto.Precio = Convert.ToDecimal("2.50");
+            producto.Precio = "2.50";
             int result = await ProductoDAL.CrearAsync(producto);
             Assert.AreNotEqual(0, result);
             productoInicial.Id = producto.Id;
